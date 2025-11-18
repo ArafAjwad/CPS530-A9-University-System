@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Departments</h2>
+
+<div class="mb-3 text-end">
+    <a href="/add-department" class="btn btn-primary">Add Department</a>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>Dept ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Office</th>
+            <th style="width: 130px;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in departments %}
+        <tr>
+            <td>{{ d.Dept_ID }}</td>
+            <td>{{ d.Department_Name }}</td>
+            <td>{{ d.Department_Email }}</td>
+            <td>{{ d.Department_Office }}</td>
+            <td>
+                <a href="/update-department/{{ d.Dept_ID }}" class="btn btn-sm btn-warning">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

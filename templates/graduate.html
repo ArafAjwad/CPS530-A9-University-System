@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Graduate Students</h2>
+
+<div class="mb-3 text-end">
+    <a href="/add-graduate" class="btn btn-primary">Add Graduate Record</a>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>Student ID</th>
+            <th>Degree Type</th>
+            <th>Research Area</th>
+            <th>Supervisor</th>
+            <th style="width:130px;">Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for g in grads %}
+        <tr>
+            <td>{{ g.Student_ID }}</td>
+            <td>{{ g.Degree_Type }}</td>
+            <td>{{ g.Research_Area }}</td>
+            <td>{{ g.Supervisor }}</td>
+            <td>
+                <a href="/update-graduate/{{ g.Student_ID }}" class="btn btn-sm btn-warning">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

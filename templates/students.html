@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Students</h2>
+
+<!-- ⭐⭐⭐ INSERT SEARCH BAR RIGHT HERE ⭐⭐⭐ -->
+<form method="GET" action="/search-students" 
+      class="mb-4 d-flex" 
+      style="max-width: 400px; margin: 0 auto;">
+    <input type="text" name="query" class="form-control" placeholder="Search by ID or name" required>
+    <button class="btn btn-primary ms-2">Search</button>
+</form>
+<!-- ⭐⭐⭐ END OF INSERT ⭐⭐⭐ -->
+
+<div class="mb-3 text-end">
+    <a href="/add-student" class="btn btn-primary">Add Student</a>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>ID</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>Phone</th>
+            <th style="width: 180px;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in students %}
+        <tr>
+            <td>{{ s.Student_ID }}</td>
+            <td>{{ s.First_Name }}</td>
+            <td>{{ s.Last_Name }}</td>
+            <td>{{ s.Email }}</td>
+            <td>{{ s.DOB }}</td>
+            <td>{{ s.Phone }}</td>
+            <td>
+                <a href="/update-student/{{ s.Student_ID }}" class="btn btn-sm btn-warning">Edit</a>
+
+                <a href="/delete-student/{{ s.Student_ID }}" 
+                   class="btn btn-sm btn-danger"
+                   onclick="return confirm('Are you sure you want to delete this student?');">
+                   Delete
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

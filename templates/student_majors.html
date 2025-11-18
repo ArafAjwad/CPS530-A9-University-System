@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Student Majors</h2>
+
+<div class="mb-3 text-end">
+    <a href="/add-student-major" class="btn btn-primary">Add Student Major</a>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>Student ID</th>
+            <th>Major Name</th>
+            <th style="width:130px;">Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for m in majors %}
+        <tr>
+            <td>{{ m.Student_ID }}</td>
+            <td>{{ m.Major_Name }}</td>
+            <td>
+                <a href="/update-student-major/{{ m.Student_ID }}/{{ m.Major_Name }}"
+                   class="btn btn-sm btn-warning">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

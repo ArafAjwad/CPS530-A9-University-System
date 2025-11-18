@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Update Tuition Record</h2>
+
+<form method="POST" class="card p-4 shadow">
+
+    <div class="mb-3">
+        <label>Student ID</label>
+        <input type="number" name="student_id" class="form-control"
+               value="{{ t.Student_ID }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Dept ID</label>
+        <input type="number" name="dept_id" class="form-control"
+               value="{{ t.Dept_ID }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Payment Deadline</label>
+        <input type="date" name="payment_deadline" class="form-control"
+               value="{{ t.Payment_Deadline }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Payment Amount</label>
+        <input type="number" name="payment_amount" class="form-control"
+               value="{{ t.Payment_Amount }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Payment Status</label>
+        <select name="payment_status" class="form-control" required>
+            <option value="Paid" {% if t.Payment_Status == 'Paid' %}selected{% endif %}>Paid</option>
+            <option value="Unpaid" {% if t.Payment_Status == 'Unpaid' %}selected{% endif %}>Unpaid</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-warning w-100">Update Tuition Record</button>
+
+</form>
+
+{% endblock %}

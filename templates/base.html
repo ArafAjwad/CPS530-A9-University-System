@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Glassmorphic Navbar Styling -->
+    <style>
+        /* Glassmorphic Navbar */
+        .navbar-custom {
+            background: rgba(30, 80, 255, 0.55); /* Soft blue transparent */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .navbar-custom .navbar-brand {
+            color: white !important;
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: 0.5px;
+        }
+
+        .navbar-custom .nav-link {
+            color: rgba(255,255,255,0.85) !important;
+            font-weight: 500;
+            padding: 10px 14px;
+            transition: all 0.25s ease;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: white !important;
+            text-shadow: 0 0 8px rgba(255,255,255,0.9);
+        }
+
+        /* Mobile icon fix */
+        .navbar-custom .navbar-toggler {
+            border-color: rgba(255,255,255,0.7);
+        }
+        .navbar-custom .navbar-toggler-icon {
+            filter: brightness(0) invert(1);
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+<!-- Updated NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+
+        <a class="navbar-brand" href="/">University App</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item"><a class="nav-link" href="/students">Students</a></li>
+                <li class="nav-item"><a class="nav-link" href="/departments">Departments</a></li>
+                <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
+                <li class="nav-item"><a class="nav-link" href="/sections">Sections</a></li>
+                <li class="nav-item"><a class="nav-link" href="/instructors">Instructors</a></li>
+                <li class="nav-item"><a class="nav-link" href="/ict">Instructor Courses</a></li>
+                <li class="nav-item"><a class="nav-link" href="/student-majors">Majors</a></li>
+                <li class="nav-item"><a class="nav-link" href="/undergraduate">Undergrad</a></li>
+                <li class="nav-item"><a class="nav-link" href="/graduate">Graduate</a></li>
+                <li class="nav-item"><a class="nav-link" href="/degrees">Degrees</a></li>
+                <li class="nav-item"><a class="nav-link" href="/registration">Registration</a></li>
+                <li class="nav-item"><a class="nav-link" href="/tuition">Tuition</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container mt-4">
+    {% block content %}{% endblock %}
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

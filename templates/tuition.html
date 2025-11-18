@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Tuition Records</h2>
+
+<div class="mb-3 text-end">
+    <a href="/add-tuition" class="btn btn-primary">Add Tuition Record</a>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>Student ID</th>
+            <th>Dept ID</th>
+            <th>Payment Deadline</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th style="width:130px;">Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for t in tuition %}
+        <tr>
+            <td>{{ t.Student_ID }}</td>
+            <td>{{ t.Dept_ID }}</td>
+            <td>{{ t.Payment_Deadline }}</td>
+            <td>{{ t.Payment_Amount }}</td>
+            <td>{{ t.Payment_Status }}</td>
+            <td>
+                <a href="/update-tuition/{{ t.Student_ID }}/{{ t.Dept_ID }}"
+                   class="btn btn-sm btn-warning">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

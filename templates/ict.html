@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Instructor Courses Taught</h2>
+
+<div class="mb-3 text-end">
+    <a href="/add-ict" class="btn btn-primary">Add Instructor Course Taught</a>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>Instructor ID</th>
+            <th>Dept ID</th>
+            <th>Course ID</th>
+            <th style="width:130px;">Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for r in ict %}
+        <tr>
+            <td>{{ r.Instructor_ID }}</td>
+            <td>{{ r.Dept_ID }}</td>
+            <td>{{ r.Course_ID }}</td>
+            <td>
+                <a href="/update-ict/{{ r.Instructor_ID }}/{{ r.Dept_ID }}/{{ r.Course_ID }}"
+                   class="btn btn-sm btn-warning">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

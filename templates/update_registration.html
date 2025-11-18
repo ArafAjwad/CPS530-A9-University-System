@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Update Registration</h2>
+
+<form method="POST" class="card p-4 shadow">
+
+    <!-- Registration_ID is auto-generated → hidden -->
+    <input type="hidden" name="registration_id" value="{{ registration.Registration_ID }}">
+
+    <div class="mb-3">
+        <label>Student ID</label>
+        <input type="number" name="student_id" class="form-control"
+               value="{{ registration.Student_ID }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Dept ID</label>
+        <input type="number" name="dept_id" class="form-control"
+               value="{{ registration.Dept_ID }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Course ID</label>
+        <input type="number" name="course_id" class="form-control"
+               value="{{ registration.Course_ID }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Section No</label>
+        <input type="number" name="section_no" class="form-control"
+               value="{{ registration.Section_No }}" required>
+    </div>
+
+    <button type="submit" class="btn btn-warning w-100">Update Registration</button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Add Tuition Record</h2>
+
+<form method="POST" class="card p-4 shadow">
+
+    <div class="mb-3">
+        <label>Student ID</label>
+        <input type="number" name="student_id" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Dept ID</label>
+        <input type="number" name="dept_id" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Payment Deadline</label>
+        <input type="date" name="payment_deadline" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Payment Amount</label>
+        <input type="number" name="payment_amount" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Payment Status</label>
+        <select name="payment_status" class="form-control" required>
+            <option value="Paid">Paid</option>
+            <option value="Unpaid">Unpaid</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Add Tuition Record</button>
+
+</form>
+
+{% endblock %}

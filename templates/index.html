@@ -1,0 +1,352 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- DARK MODE TOGGLE -->
+<div class="theme-toggle">
+    <button id="themeBtn">🌙</button>
+</div>
+
+<h2 class="text-center mb-5 dashboard-title">
+    University Enrollment System
+</h2>
+
+<!-- LIVE DASHBOARD METRICS -->
+<div class="stats-row">
+    <div class="stat-card">
+        <div class="stat-number" data-target="4820">0</div>
+        <div class="stat-label">Active Students</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-number" data-target="320">0</div>
+        <div class="stat-label">Courses Offered</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-number" data-target="180">0</div>
+        <div class="stat-label">Faculty Members</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-number" data-target="74">0</div>
+        <div class="stat-label">Departments</div>
+    </div>
+</div>
+
+<div class="dashboard-container">
+
+    <!-- ===================== STUDENT SERVICES ===================== -->
+    <h4 class="section-title">Student Services</h4>
+    <div class="dashboard-wrapper">
+
+        <a href="/students" class="dash-card">
+            <span class="dash-icon">🎓</span>
+            <span class="dash-text">Students</span>
+        </a>
+
+        <a href="/student-majors" class="dash-card">
+            <span class="dash-icon">🎯</span>
+            <span class="dash-text">Majors</span>
+        </a>
+
+        <a href="/undergraduate" class="dash-card">
+            <span class="dash-icon">🧑‍🎓</span>
+            <span class="dash-text">Undergraduate</span>
+        </a>
+
+        <a href="/graduate" class="dash-card">
+            <span class="dash-icon">📘</span>
+            <span class="dash-text">Graduate</span>
+        </a>
+
+        <a href="/degrees" class="dash-card">
+            <span class="dash-icon">📜</span>
+            <span class="dash-text">Degrees</span>
+        </a>
+
+    </div>
+
+    <!-- ===================== ACADEMIC RECORDS ===================== -->
+    <h4 class="section-title mt-5">Academic Records</h4>
+    <div class="dashboard-wrapper">
+
+        <a href="/departments" class="dash-card">
+            <span class="dash-icon">🏢</span>
+            <span class="dash-text">Departments</span>
+        </a>
+
+        <a href="/courses" class="dash-card">
+            <span class="dash-icon">📘</span>
+            <span class="dash-text">Courses</span>
+        </a>
+
+        <a href="/sections" class="dash-card">
+            <span class="dash-icon">📚</span>
+            <span class="dash-text">Sections</span>
+        </a>
+
+        <a href="/instructors" class="dash-card">
+            <span class="dash-icon">👨‍🏫</span>
+            <span class="dash-text">Instructors</span>
+        </a>
+
+        <a href="/ict" class="dash-card">
+            <span class="dash-icon">📖</span>
+            <span class="dash-text">Instructor Courses</span>
+        </a>
+
+    </div>
+
+    <!-- ===================== ADMINISTRATION ===================== -->
+    <h4 class="section-title mt-5">Administration</h4>
+    <div class="dashboard-wrapper">
+
+        <a href="/registration" class="dash-card">
+            <span class="dash-icon">📝</span>
+            <span class="dash-text">Registration</span>
+        </a>
+
+        <a href="/tuition" class="dash-card">
+            <span class="dash-icon">💵</span>
+            <span class="dash-text">Tuition</span>
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- ===================== FLOATING BACKGROUND EFFECTS ===================== -->
+<div class="floating-circle c1"></div>
+<div class="floating-circle c2"></div>
+<div class="floating-circle c3"></div>
+
+
+<style>
+
+    /* ====================================================
+       GLOBAL PAGE BACKGROUND + ANIMATION 
+       ==================================================== */
+    body {
+        background: var(--bg-gradient);
+        transition: background 0.5s ease, color 0.5s ease;
+        animation: gradientMove 10s infinite alternate;
+    }
+
+    :root {
+        --bg-gradient: linear-gradient(135deg, #d0e1ff, #f5f3ff, #c7f9ff);
+        --card-bg: rgba(255,255,255,0.55);
+        --text-color: #1a1a1a;
+    }
+
+    body.dark-mode {
+        --bg-gradient: linear-gradient(135deg, #1e1e2f, #11111b, #1a1a2e);
+        --card-bg: rgba(30,30,30,0.55);
+        --text-color: #eaeaea;
+    }
+
+    @keyframes gradientMove {
+        0% { background-position: 0% 0%; }
+        100% { background-position: 100% 100%; }
+    }
+
+
+
+    /* ====================================================
+       DARK MODE TOGGLE BUTTON
+       ==================================================== */
+    .theme-toggle {
+        text-align: right;
+        margin-bottom: 10px;
+        margin-right: 20px;
+    }
+
+    #themeBtn {
+        border: none;
+        background: #ffffff88;
+        padding: 10px 14px;
+        font-size: 1.4rem;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+        backdrop-filter: blur(5px);
+    }
+
+    #themeBtn:hover {
+        background: #ffffffcc;
+        transform: scale(1.1);
+    }
+
+
+
+    /* ====================================================
+       LIVE STAT CARDS
+       ==================================================== */
+    .stats-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 25px;
+        margin-bottom: 50px;
+        animation: fadeIn 1s ease;
+    }
+
+    .stat-card {
+        background: var(--card-bg);
+        padding: 20px;
+        border-radius: 18px;
+        text-align: center;
+        color: var(--text-color);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+
+    .stat-number {
+        font-size: 2.2rem;
+        font-weight: 800;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+        font-weight: 600;
+        opacity: 0.8;
+    }
+
+
+
+    /* ====================================================
+       TITLES
+       ==================================================== */
+    .dashboard-title {
+        font-size: 2.6rem !important;
+        font-weight: 800 !important;
+        color: var(--text-color);
+    }
+
+    .section-title {
+        font-weight: 700;
+        margin-bottom: 18px;
+        color: var(--text-color);
+        opacity: 0.9;
+        letter-spacing: 0.5px;
+    }
+
+
+
+    /* ====================================================
+       DASHBOARD CARDS
+       ==================================================== */
+    .dashboard-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 30px;
+        margin-bottom: 20px;
+    }
+
+    .dash-card {
+        background: var(--card-bg);
+        border-radius: 22px;
+        padding: 40px 20px;
+        text-align: center;
+        text-decoration: none;
+        color: var(--text-color);
+        box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .dash-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    }
+
+    .dash-icon {
+        font-size: 3.4rem;
+        display: block;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+    }
+
+    .dash-card:hover .dash-icon {
+        transform: scale(1.25);
+    }
+
+    .dash-text {
+        font-size: 1.35rem;
+        font-weight: 700;
+    }
+
+
+
+    /* ====================================================
+       FLOATING ANIMATED BUBBLES
+       ==================================================== */
+    .floating-circle {
+        position: fixed;
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 0.35;
+        filter: blur(40px);
+        animation: floatBubble 10s infinite alternate ease-in-out;
+    }
+
+    .c1 {
+        width: 180px; height: 180px;
+        background: #93c5fd;
+        top: 10%; left: 5%;
+        animation-duration: 11s;
+    }
+
+    .c2 {
+        width: 220px; height: 220px;
+        background: #c4b5fd;
+        bottom: 15%; right: 8%;
+        animation-duration: 12s;
+    }
+
+    .c3 {
+        width: 160px; height: 160px;
+        background: #a5f3fc;
+        bottom: 30%; left: 15%;
+        animation-duration: 14s;
+    }
+
+    @keyframes floatBubble {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-40px); }
+    }
+
+</style>
+
+
+<!-- DARK MODE + COUNTER SCRIPT -->
+<script>
+    // Dark Mode Toggle
+    const btn = document.getElementById("themeBtn");
+    btn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        btn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    });
+
+    // Animated Counters
+    document.querySelectorAll(".stat-number").forEach(num => {
+        let target = +num.getAttribute("data-target");
+        let count = 0;
+        let speed = target / 80;
+
+        function update() {
+            count += speed;
+            if (count < target) {
+                num.textContent = Math.floor(count);
+                requestAnimationFrame(update);
+            } else {
+                num.textContent = target;
+            }
+        }
+        update();
+    });
+</script>
+
+{% endblock %}

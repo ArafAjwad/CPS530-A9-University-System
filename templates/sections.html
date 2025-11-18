@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Sections</h2>
+
+<div class="mb-3 text-end">
+    <a href="/add-section" class="btn btn-primary">Add Section</a>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>Dept ID</th>
+            <th>Course ID</th>
+            <th>Section No</th>
+            <th>Instructor</th>
+            <th style="width:130px;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in sections %}
+        <tr>
+            <td>{{ s.Dept_ID }}</td>
+            <td>{{ s.Course_ID }}</td>
+            <td>{{ s.Section_No }}</td>
+            <td>{{ s.Instructor_Name }}</td>
+            <td>
+                <a href="/update-section/{{ s.Dept_ID }}/{{ s.Course_ID }}/{{ s.Section_No }}"
+                   class="btn btn-sm btn-warning">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

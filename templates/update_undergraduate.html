@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Update Undergraduate Record</h2>
+
+<form method="POST" class="card p-4 shadow">
+
+    <div class="mb-3">
+        <label>Student ID</label>
+        <input type="number" name="student_id" class="form-control"
+               value="{{ record.Student_ID }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Year Level</label>
+        <input type="number" name="year_level" class="form-control"
+               value="{{ record.Year_Level }}" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Expected Graduation Year</label>
+        <input type="number" name="expected_grad_year" class="form-control"
+               value="{{ record.Expected_Grad_Year }}" required>
+    </div>
+
+    <button type="submit" class="btn btn-warning w-100">Update Undergraduate Record</button>
+
+</form>
+
+{% endblock %}

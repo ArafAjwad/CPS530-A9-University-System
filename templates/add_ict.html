@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Add Instructor Course Taught</h2>
+
+<form method="POST" class="card p-4 shadow">
+
+    <div class="mb-3">
+        <label>Instructor ID</label>
+        <input type="number" name="instructor_id" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Dept ID</label>
+        <input type="number" name="dept_id" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Course ID</label>
+        <input type="number" name="course_id" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Add Record</button>
+
+</form>
+
+{% endblock %}

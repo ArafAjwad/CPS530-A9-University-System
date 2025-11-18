@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="mb-4 text-center">Student Degrees</h2>
+
+<div class="mb-3 text-end">
+    <a href="/add-degree" class="btn btn-primary">Add Degree</a>
+</div>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>Student ID</th>
+            <th>Dept ID</th>
+            <th>Program Name</th>
+            <th>Program Type</th>
+            <th>University</th>
+            <th style="width:130px;">Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for d in degrees %}
+        <tr>
+            <td>{{ d.Student_ID }}</td>
+            <td>{{ d.Dept_ID }}</td>
+            <td>{{ d.Program_Name }}</td>
+            <td>{{ d.Program_Type }}</td>
+            <td>{{ d.University }}</td>
+            <td>
+                <a href="/update-degree/{{ d.Student_ID }}/{{ d.Dept_ID }}/{{ d.Program_Name }}"
+                   class="btn btn-sm btn-warning">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
