@@ -146,8 +146,7 @@ CPS530-A9-University-System/
 │   ├── update_student.html
 │   ├── departments.html
 │   ├── ...
-│
-└── a9.pdf                 # User guide (included in submission)
+
 
 📘 Deliverables (For CPS530 Submission)
 
